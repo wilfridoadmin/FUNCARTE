@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor de inicio de sesión -->
+    <div id="login-container" class="container">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Iniciar Sesión</button>
+            <div id="login-error" class="error-message"></div>
+        </form>
+    </div>
 
+    <!-- Contenedor principal -->
+    <div id="main-container" class="container hidden">
+        <h2>Gestión de Usuarios</h2>
+        <button id="add-user-btn">Agregar Usuario</button>
+        <button id="delete-user-btn">Eliminar Usuario</button>
+
+        <!-- Tabla de usuarios -->
+        <table id="user-table">
+            <thead>
+                <tr>
+                    <th>Nombre de Usuario</th>
+                    <th>Edad</th>
+                    <th>Valor de Matrícula</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los registros se agregarán aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Formulario de usuario -->
+    <div id="user-form-container" class="container hidden">
+        <h2 id="form-title">Agregar Usuario</h2>
+        <form id="user-form">
+            <label for="user-name">Nombre de Usuario:</label>
+            <input type="text" id="user-name" required>
+            <label for="user-age">Edad:</label>
+            <input type="number" id="user-age" required>
+            <label for="user-matricula">Valor de Matrícula:</label>
+            <input type="number" id="user-matricula" required>
+            <button type="submit">Guardar</button>
+            <button type="button" id="cancel-btn">Cancelar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
