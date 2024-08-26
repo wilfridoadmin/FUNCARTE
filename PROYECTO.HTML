@@ -3,66 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Registros</title>
+    <title>Registro de Personas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Contenedor de inicio de sesión -->
-    <div id="login-container" class="container">
-        <h2>Iniciar Sesión</h2>
-        <form id="login-form">
-            <label for="username">Usuario:</label>
-            <input type="text" id="username" required>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" required>
-            <button type="submit">Iniciar Sesión</button>
-            <div id="login-error" class="error-message"></div>
-        </form>
-    </div>
+    <div class="container">
+        <h1>Registro de Personas</h1>
 
-    <!-- Contenedor principal -->
-    <div id="main-container" class="container hidden">
-        <header>
-            <div id="user-logo">
-                <img src="https://via.placeholder.com/50" alt="Logo Usuario" id="logo-img">
-                <div id="user-menu" class="hidden">
-                    <button id="add-record-btn">Crear Nuevo Registro</button>
-                </div>
-            </div>
-            <h2>Listado de Registros</h2>
-        </header>
+        <!-- Formulario para agregar un nuevo registro -->
+        <div id="record-form-container">
+            <h2>Agregar Nuevo Registro</h2>
+            <form id="record-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required>
+
+                <label for="age">Edad:</label>
+                <input type="number" id="age" required>
+
+                <label for="paid">Valor Pagado:</label>
+                <input type="number" id="paid" required>
+
+                <label for="treatment">Tratamiento:</label>
+                <input type="text" id="treatment" required>
+
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
 
         <!-- Tabla de registros -->
-        <table id="records-table">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Valor Pagado</th>
-                    <th>Tratamiento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Los registros se agregarán aquí -->
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Formulario para crear nuevo registro -->
-    <div id="record-form-container" class="container hidden">
-        <h2>Crear Nuevo Registro</h2>
-        <form id="record-form">
-            <label for="record-name">Nombre:</label>
-            <input type="text" id="record-name" required>
-            <label for="record-age">Edad:</label>
-            <input type="number" id="record-age" required>
-            <label for="record-paid">Valor Pagado:</label>
-            <input type="number" id="record-paid" required>
-            <label for="record-treatment">Tratamiento:</label>
-            <input type="text" id="record-treatment" required>
-            <button type="submit">Guardar</button>
-            <button type="button" id="cancel-btn">Cancelar</button>
-        </form>
+        <div id="records-container">
+            <h2>Listado de Registros</h2>
+            <table id="records-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Valor Pagado</th>
+                        <th>Tratamiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los registros se agregarán aquí -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script src="script.js"></script>
