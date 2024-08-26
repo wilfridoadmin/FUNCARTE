@@ -14,51 +14,9 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.hidden {
-    display: none;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#user-logo {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-#logo-img {
-    border-radius: 50%;
-}
-
-#user-menu {
-    display: none;
-    position: absolute;
-    right: 20px;
-    top: 70px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#user-menu button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background: #007bff;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 0 0 8px 8px;
-    text-align: left;
-}
-
-#user-menu button:hover {
-    background: #0056b3;
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 h2 {
@@ -88,16 +46,10 @@ button {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 button:hover {
     background-color: #0056b3;
-}
-
-.error-message {
-    color: red;
-    margin-top: 10px;
 }
 
 table {
