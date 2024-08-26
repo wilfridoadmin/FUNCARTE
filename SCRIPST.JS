@@ -1,19 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const adminUsername = 'wilfridoadmin';
-    const adminPassword = 'wiljaja22';
+    const adminUsername = 'admin';
+    const adminPassword = '221099';
     const loginForm = document.getElementById('login-form');
     const loginContainer = document.getElementById('login-container');
     const mainContainer = document.getElementById('main-container');
-    const userFormContainer = document.getElementById('user-form-container');
-    const userTableBody = document.querySelector('#user-table tbody');
-    const loginError = document.getElementById('login-error');
-    const addUserBtn = document.getElementById('add-user-btn');
-    const deleteUserBtn = document.getElementById('delete-user-btn');
-    const createUserBtn = document.getElementById('create-user-btn');
-    const userForm = document.getElementById('user-form');
+    const userMenu = document.getElementById('user-menu');
+    const userLogo = document.getElementById('user-logo');
+    const addRecordBtn = document.getElementById('add-record-btn');
+    const recordFormContainer = document.getElementById('record-form-container');
+    const recordForm = document.getElementById('record-form');
     const cancelBtn = document.getElementById('cancel-btn');
+    const recordsTableBody = document.querySelector('#records-table tbody');
+    const loginError = document.getElementById('login-error');
     let currentAction = '';
 
+    // Manejo del formulario de inicio de sesión
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const username = document.getElementById('username').value;
@@ -27,47 +28,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function showUserForm(action) {
-        currentAction = action;
-        userFormContainer.classList.remove('hidden');
-        userFormContainer.querySelector('#form-title').textContent = action === 'add' ? 'Agregar Usuario' : 'Editar Usuario';
-    }
-
-    function hideUserForm() {
-        userFormContainer.classList.add('hidden');
-    }
-
-    addUserBtn.addEventListener('click', () => showUserForm('add'));
-    createUserBtn.addEventListener('click', () => showUserForm('create'));
-    cancelBtn.addEventListener('click', hideUserForm);
-
-    userForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const userName = document.getElementById('user-name').value;
-        const userAge = document.getElementById('user-age').value;
-        const userMatricula = document.getElementById('user-matricula').value;
-
-        if (currentAction === 'add' || currentAction === 'create') {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${userName}</td>
-                <td>${userAge}</td>
-                <td>${userMatricula}</td>
-            `;
-            userTableBody.appendChild(row);
-        } else if (currentAction === 'edit') {
-            // Logic to edit a user can be implemented here
-        }
-
-        hideUserForm();
+    // Mostrar el menú del usuario al hacer clic en el logo
+    userLogo.addEventListener('click', () => {
+        userMenu.classList.toggle('hidden');
     });
 
-    deleteUserBtn.addEventListener('click', () => {
-        const rows = userTableBody.querySelectorAll('tr');
-        rows.forEach(row => {
-            if (row.querySelector('input[type="checkbox"]').checked) {
-                row.remove();
-            }
-        });
+    // Mostrar el formulario para crear un nuevo registro
+    addRecordBtn.addEventListener('click', () => {
+        recordFormContainer.classList.remove('hidden');
+    });
+
+    // Ocultar el formulario de registro
+    cancelBtn.addEventListener('click', () => {
+        recordFormContainer.classList.add('hidden');
+        recordForm.reset(); // Limpiar el formulario
+    });
+
+    // Manejo del formulario de registro
+    recordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('record-name').value;
+        const age = document.getElementById('record-age').value;
+        const paid = document.getElementById('record-paid').value;
+        const treatment = document.getElementById('record-treatment').value;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${name}</td>
+            <td>${age}</td>
+            <td>${paid}</td>
+            <td>${treatment}</td>
+        `;
+        recordsTableBody.appendChild(row);
+
+        recordFormContainer.classList.add('hidden');
+        recordForm.reset(); // Limpiar el formulario
     });
 });
